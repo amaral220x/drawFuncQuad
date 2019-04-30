@@ -44,6 +44,11 @@ function drawQuad(eqc){
     ctx.save();
     ctx.translate(250,250);
     ctx.beginPath();
+    ctx.moveTo(xt(-10),yt(0));
+    ctx.lineTo(xt(10),yt(0));
+    ctx.moveTo(xt(0),yt(-100));
+    ctx.lineTo(xt(0),yt(100));
+
     ctx.moveTo(xt(x),f(x));
     x += dx;
     while (x < xf){
