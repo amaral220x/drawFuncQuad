@@ -7,7 +7,6 @@ function funcaoQuad(){
     var delta, r1, r2;
 
     delta = Math.pow(b,2) -4*a*c;
-    alert(delta);
     if(delta < 0){
         result1.textContent= "Não admite raizes reais";
         result2.textContent= " ";
@@ -18,17 +17,24 @@ function funcaoQuad(){
     result1.textContent = r1;
     result2.textContent = r2;
     }   
+
+    drawQuad();
 }
 function f(x){
-    return yt(x**2);
+    var a = parseInt(document.getElementById("a").value);
+    var b = parseInt(document.getElementById("b").value);
+    var c = parseInt(document.getElementById("c").value);
+    var eq= ((a * (x**2)) + (b * x) + c);
+
+    return yt(eq);
 }
 function yt(y){
-    return -5*y/2;
+    return -25*y;
 }
 function xt(x){
     return 25*x;
 }
-function drawQuad(){
+function drawQuad(eqc){
     var canvas = document.getElementById("tela");
     ctx = canvas.getContext("2d");
     var x0 = -10;
