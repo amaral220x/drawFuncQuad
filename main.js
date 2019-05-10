@@ -17,8 +17,15 @@ function funcaoQuad(){
     result1.textContent = r1;
     result2.textContent = r2;
     }   
-
     drawQuad();
+    drawPoints(r1,r2);
+    var yv = -delta / (4 * a);
+    var xv = (-b) / (2 * a);
+    var x = document.getElementById('xv');
+    var y = document.getElementById('yv');
+    y.textContent = yv;
+    x.textContent = xv;
+    drawVertex(xv,yv);
 }
 function f(x){
     var a = parseInt(document.getElementById("a").value);
@@ -57,4 +64,23 @@ function drawQuad(eqc){
     }
     ctx.stroke();
 
+}
+
+function drawPoints(r1,r2){
+    ctx.beginPath()
+    ctx.fillStyle = 'rgb(0, 0, 255)';
+    ctx.arc(xt(r1), 0, 4, 0, 2 * Math.PI)
+    ctx.arc(xt(r2), 0, 4, 0, 2 * Math.PI)
+    ctx.fill()
+    ctx.stroke()
+    ctx.closePath()
+}
+
+function drawVertex(xv,yv){
+    ctx.beginPath()
+    ctx.fillStyle = 'rgb(0, 255, 0)';
+    ctx.arc(xt(xv), yt(yv), 4, 0, 2 * Math.PI)
+    ctx.fill()
+    ctx.stroke()
+    ctx.closePath()
 }
